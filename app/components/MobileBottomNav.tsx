@@ -1,77 +1,108 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Home, Search, Plus, MessageSquare, User } from 'lucide-react';
+import { Home, Flame, MessageSquare, Search, User, Plus } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface MobileBottomNavProps {
   onOpenJoinModal: (type: 'creator' | 'business' | 'general') => void;
+  onOpenFeedModal: () => void;
 }
 
-export default function MobileBottomNav({ onOpenJoinModal }: MobileBottomNavProps) {
+export default function MobileBottomNav({ onOpenJoinModal, onOpenFeedModal }: MobileBottomNavProps) {
   const [activeTab, setActiveTab] = useState('Home');
 
   const tabs = [
     { id: 'Home', label: 'Home', icon: Home },
+    { id: 'Feed', label: 'Feed', icon: Flame, isFeed: true },
+    { id: 'Messages', label: 'Messages', icon: MessageSquare, badge: '3' },
     { id: 'Explore', label: 'Explore', icon: Search },
-    { id: 'PostJob', label: 'Post a Job', icon: Plus, isCenterButton: true },
-    { id: 'Messages', label: 'Messages', icon: MessageSquare },
     { id: 'Profile', label: 'Profile', icon: User },
   ];
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#FAF8F5]/95 backdrop-blur-xl border-t border-gray-200/80 px-3 py-1.5 shadow-[0_-4px_20px_rgba(0,0,0,0.06)]">
-      <div className="flex items-center justify-around relative max-w-md mx-auto">
-        {tabs.map((tab) => {
-          const Icon = tab.icon;
-          const isActive = activeTab === tab.id;
+    <>
+      {/* TWITTER/X STYLE FLOATING "+" FAB ACTION BUTTON */}
+      <motion.div 
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: 'spring', damping: 15, stiffness: 250, delay: 0.2 }}
+        className="md:hidden fixed bottom-20 right-5 z-40 flex flex-col items-center"
+      >
+        <button
+          onClick={() => onOpenJoinModal('business')}
+          className="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 via-purple-700 to-indigo-600 text-white flex items-center justify-center shadow-xl shadow-purple-600/40 border-2 border-white hover:scale-110 active:scale-95 transition-all cursor-pointer group"
+          aria-label="Create New Collab or Campaign"
+        >
+          <Plus className="w-7 h-7 stroke-[3] group-hover:rotate-90 transition-transform duration-300" />
+        </button>
+      </motion.div>
 
-          if (tab.isCenterButton) {
-            return (
-              <div key={tab.id} className="flex flex-col items-center -mt-6">
+      {/* MOBILE BOTTOM NAVIGATION BAR */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-2xl border-t border-purple-100/90 px-2 py-1.5 shadow-[0_-4px_25px_rgba(109,40,217,0.1)]">
+        <div className="flex items-center justify-around relative max-w-md mx-auto">
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeTab === tab.id;
+
+            if (tab.isFeed) {
+              return (
                 <button
+                  key={tab.id}
                   onClick={() => {
                     setActiveTab(tab.id);
-                    onOpenJoinModal('business');
+                    onOpenFeedModal();
                   }}
-                  className="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-500/40 border-2 border-[#FAF8F5] hover:scale-105 active:scale-95 transition-all"
-                  aria-label="Post a Job"
+                  className="flex flex-col items-center py-1 px-2 relative group transition-all cursor-pointer"
                 >
-                  <Plus className="w-6 h-6 stroke-[2.5]" />
+                  <div className="relative">
+                    <Icon className="w-5 h-5 text-amber-500 fill-amber-400 animate-pulse" />
+                    <span className="absolute -top-1 -right-2 px-1 py-0.2 rounded-full bg-purple-600 text-white text-[8px] font-black tracking-wider shadow-xs">
+                      LIVE
+                    </span>
+                  </div>
+                  <span className="text-[10px] mt-1 font-extrabold text-amber-600">
+                    {tab.label}
+                  </span>
                 </button>
-                <span className="text-[10px] font-semibold text-purple-600 mt-1">
+              );
+            }
+
+            return (
+              <button
+                key={tab.id}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  if (tab.id === 'Messages' || tab.id === 'Profile') {
+                    onOpenJoinModal('general');
+                  }
+                }}
+                className="flex flex-col items-center py-1 px-2 transition-all cursor-pointer relative"
+              >
+                <div className="relative">
+                  <Icon
+                    className={`w-5 h-5 transition-colors ${
+                      isActive ? 'text-purple-600 stroke-[2.5]' : 'text-gray-400'
+                    }`}
+                  />
+                  {tab.badge && (
+                    <span className="absolute -top-1 -right-2.5 px-1.5 py-0.2 rounded-full bg-indigo-600 text-white text-[8px] font-black shadow-xs">
+                      {tab.badge}
+                    </span>
+                  )}
+                </div>
+                <span
+                  className={`text-[10px] mt-1 transition-colors ${
+                    isActive ? 'text-purple-600 font-extrabold' : 'text-gray-500 font-semibold'
+                  }`}
+                >
                   {tab.label}
                 </span>
-              </div>
+              </button>
             );
-          }
-
-          return (
-            <button
-              key={tab.id}
-              onClick={() => {
-                setActiveTab(tab.id);
-                if (tab.id === 'Profile') {
-                  onOpenJoinModal('general');
-                }
-              }}
-              className="flex flex-col items-center py-1 px-2 transition-all"
-            >
-              <Icon
-                className={`w-5 h-5 transition-colors ${
-                  isActive ? 'text-purple-600 stroke-[2.5]' : 'text-gray-500'
-                }`}
-              />
-              <span
-                className={`text-[10px] mt-1 font-semibold transition-colors ${
-                  isActive ? 'text-purple-600 font-bold' : 'text-gray-500'
-                }`}
-              >
-                {tab.label}
-              </span>
-            </button>
-          );
-        })}
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

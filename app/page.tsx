@@ -65,7 +65,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#FAF8F5] text-gray-600 relative selection:bg-purple-600 selection:text-white">
+    <main className="min-h-screen bg-[#030014] text-slate-300 relative selection:bg-purple-600 selection:text-white">
       
       {/* Top Demo Workflow Switcher (Guest vs Sejal vs Nikhil) */}
       <DemoUserSwitcher 
@@ -109,7 +109,7 @@ export default function Home() {
       )}
 
       {/* Footer Minimalist Copyright */}
-      <footer className="border-t border-gray-200/60 py-8 px-4 text-center text-xs text-gray-500 mb-16 md:mb-0">
+      <footer className="border-t border-white/5 py-8 px-4 text-center text-xs text-slate-500 mb-16 md:mb-0">
         <p>© {new Date().getFullYear()} Cofluensta. All rights reserved. Connect. Collaborate. Grow.</p>
       </footer>
 

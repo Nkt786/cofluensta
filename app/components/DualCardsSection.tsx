@@ -28,25 +28,25 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         
         {/* Creator Card - Purple Theme */}
-        <div className="glass-card-purple p-6 sm:p-8 rounded-3xl relative overflow-hidden bg-gradient-to-br from-white via-purple-50/20 to-white flex flex-col justify-between group">
+        <div className="glass-card-purple p-6 sm:p-8 rounded-3xl relative overflow-hidden bg-gradient-to-br from-[#120930]/90 to-[#0A071F]/90 border border-purple-500/20 flex flex-col justify-between group">
           
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
             
             {/* Left Content */}
             <div className="sm:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 text-sm font-bold border border-purple-100">
-                <User className="w-4 h-4 text-purple-600" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-purple-955/50 text-purple-300 text-sm font-bold border border-purple-900/40">
+                <User className="w-4 h-4 text-purple-400" />
                 <span>For Creators</span>
               </div>
 
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
                 Showcase your talent, connect with brands and get paid for what you love.
               </p>
 
               <ul className="space-y-2.5 pt-1">
                 {creatorFeatures.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-xs sm:text-sm text-gray-700 font-semibold">
-                    <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
+                  <li key={i} className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-semibold">
+                    <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -56,7 +56,7 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
               <div className="hidden sm:block pt-3">
                 <button
                   onClick={() => onOpenJoinModal('creator')}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-purple-500/20 flex items-center gap-1.5 transition-all"
+                  className="px-6 py-2.5 rounded-xl bg-[#6366F1] hover:bg-[#5053e1] text-white font-bold text-xs sm:text-sm shadow-md shadow-purple-500/20 flex items-center gap-1.5 transition-all cursor-pointer"
                 >
                   <span>Join as Creator</span>
                   <ChevronRight className="w-4 h-4" />
@@ -65,7 +65,7 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
             </div>
 
             {/* Right Photo */}
-            <div className="sm:col-span-5 relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-purple-100 shadow-sm">
+            <div className="sm:col-span-5 relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-purple-900/30 shadow-sm">
               <Image
                 src="/creator_female_phone.png"
                 alt="Creator showcasing talent"
@@ -73,7 +73,7 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
                 sizes="(max-width: 640px) 100vw, 220px"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-955/10 via-transparent to-transparent" />
             </div>
 
           </div>
@@ -82,7 +82,7 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
           <div className="sm:hidden pt-4">
             <button
               onClick={() => onOpenJoinModal('creator')}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm shadow-md flex items-center justify-center gap-1"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm shadow-md flex items-center justify-center gap-1 cursor-pointer"
             >
               <span>Explore Now</span>
               <ChevronRight className="w-4 h-4" />
@@ -91,26 +91,26 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
 
         </div>
 
-        {/* Business Card - Purple Theme */}
-        <div className="glass-card-purple p-6 sm:p-8 rounded-3xl relative overflow-hidden bg-gradient-to-br from-white via-purple-50/20 to-white flex flex-col justify-between group">
+        {/* Business Card - Blue Theme */}
+        <div className="glass-card-blue p-6 sm:p-8 rounded-3xl relative overflow-hidden bg-gradient-to-br from-[#041130]/95 to-[#050B1B]/95 border border-blue-500/20 flex flex-col justify-between group">
           
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center">
             
             {/* Left Content */}
             <div className="sm:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-purple-50 text-purple-700 text-sm font-bold border border-purple-100">
-                <Briefcase className="w-4 h-4 text-purple-600" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-blue-955/50 text-blue-300 text-sm font-bold border border-blue-900/40">
+                <Briefcase className="w-4 h-4 text-blue-400" />
                 <span>For Businesses</span>
               </div>
 
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
                 Find the perfect creators, promote your brand and achieve results.
               </p>
 
               <ul className="space-y-2.5 pt-1">
                 {businessFeatures.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-xs sm:text-sm text-gray-700 font-semibold">
-                    <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
+                  <li key={i} className="flex items-center gap-2 text-xs sm:text-sm text-slate-200 font-semibold">
+                    <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -120,7 +120,7 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
               <div className="hidden sm:block pt-3">
                 <button
                   onClick={() => onOpenJoinModal('business')}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-purple-500/20 flex items-center gap-1.5 transition-all"
+                  className="px-6 py-2.5 rounded-xl bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-bold text-xs sm:text-sm shadow-md shadow-blue-500/20 flex items-center gap-1.5 transition-all cursor-pointer"
                 >
                   <span>Join as Business</span>
                   <ChevronRight className="w-4 h-4" />
@@ -129,7 +129,7 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
             </div>
 
             {/* Right Photo */}
-            <div className="sm:col-span-5 relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-purple-100 shadow-sm">
+            <div className="sm:col-span-5 relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-blue-900/30 shadow-sm">
               <Image
                 src="/business_male_suit.png"
                 alt="Business Brand Executive"
@@ -137,7 +137,7 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
                 sizes="(max-width: 640px) 100vw, 220px"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-955/10 via-transparent to-transparent" />
             </div>
 
           </div>
@@ -146,7 +146,7 @@ export default function DualCardsSection({ onOpenJoinModal }: DualCardsSectionPr
           <div className="sm:hidden pt-4">
             <button
               onClick={() => onOpenJoinModal('business')}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm shadow-md flex items-center justify-center gap-1"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm shadow-md flex items-center justify-center gap-1 cursor-pointer"
             >
               <span>Explore Now</span>
               <ChevronRight className="w-4 h-4" />

@@ -102,7 +102,7 @@ export default function FeedModal({ isOpen, onClose, onOpenJoinModal }: FeedModa
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: '100%', opacity: 0 }}
             transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-            className="relative w-full max-w-2xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col z-10 border border-purple-100"
+            className="relative w-full max-w-2xl bg-[#0A071E] rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col z-10 border border-purple-900/40"
           >
             {/* Header Ticker */}
             <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-indigo-600 text-white px-5 py-3.5 flex items-center justify-between shadow-md">
@@ -128,7 +128,7 @@ export default function FeedModal({ isOpen, onClose, onOpenJoinModal }: FeedModa
             </div>
 
             {/* Category Filter Pills */}
-            <div className="p-4 bg-purple-50/50 border-b border-purple-100/80 flex items-center gap-2 overflow-x-auto no-scrollbar">
+            <div className="p-4 bg-purple-955/20 border-b border-purple-900/30 flex items-center gap-2 overflow-x-auto no-scrollbar">
               {categories.map((cat) => (
                 <button
                   key={cat.id}
@@ -136,7 +136,7 @@ export default function FeedModal({ isOpen, onClose, onOpenJoinModal }: FeedModa
                   className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold whitespace-nowrap transition-all cursor-pointer ${
                     activeCategory === cat.id
                       ? 'bg-purple-600 text-white shadow-md shadow-purple-500/30 scale-105'
-                      : 'bg-white text-gray-700 hover:bg-purple-100/70 border border-purple-200/60'
+                      : 'bg-[#131135] text-slate-300 hover:bg-purple-955/30 border border-purple-900/40'
                   }`}
                 >
                   {cat.label}
@@ -145,17 +145,17 @@ export default function FeedModal({ isOpen, onClose, onOpenJoinModal }: FeedModa
             </div>
 
             {/* Scrollable Feed Item Cards */}
-            <div className="p-4 space-y-4 overflow-y-auto max-h-[60vh] custom-scrollbar bg-gray-50/50">
+            <div className="p-4 space-y-4 overflow-y-auto max-h-[60vh] custom-scrollbar bg-[#030014]/60">
               {filteredItems.map((item) => (
                 <motion.div 
                   key={item.id}
                   whileHover={{ y: -2 }}
-                  className="p-4 rounded-2xl bg-white border border-purple-100 shadow-sm hover:shadow-md hover:border-purple-300 transition-all space-y-3"
+                  className="p-4 rounded-2xl bg-[#0B0826]/80 border border-purple-900/30 shadow-sm hover:shadow-md hover:border-purple-800 transition-all space-y-3"
                 >
                   {/* Card Header */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-purple-200 bg-purple-50">
+                      <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-purple-900/40 bg-purple-955/30">
                         <Image
                           src={item.avatar}
                           alt={item.author}
@@ -164,39 +164,39 @@ export default function FeedModal({ isOpen, onClose, onOpenJoinModal }: FeedModa
                         />
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-gray-900 flex items-center gap-1.5">
+                        <h4 className="text-sm font-bold text-white flex items-center gap-1.5">
                           {item.author}
                           <CheckCircle2 className="w-3.5 h-3.5 text-purple-600 fill-purple-100" />
                         </h4>
-                        <span className="text-[10px] font-semibold text-purple-600 px-2 py-0.5 rounded-md bg-purple-50 border border-purple-100 inline-block">
+                        <span className="text-[10px] font-semibold text-purple-400 px-2 py-0.5 rounded-md bg-purple-955/30 border border-purple-900/40 inline-block">
                           {item.badge}
                         </span>
                       </div>
                     </div>
 
-                    <span className="text-[11px] font-medium text-gray-400">{item.timeAgo}</span>
+                    <span className="text-[11px] font-medium text-slate-500">{item.timeAgo}</span>
                   </div>
 
                   {/* Title & Body */}
                   <div>
-                    <h5 className="text-sm font-extrabold text-gray-900 leading-snug">{item.title}</h5>
-                    <p className="text-xs text-gray-600 mt-1 leading-relaxed">{item.description}</p>
+                    <h5 className="text-sm font-extrabold text-white leading-snug">{item.title}</h5>
+                    <p className="text-xs text-slate-300 mt-1 leading-relaxed">{item.description}</p>
                   </div>
 
                   {/* Tags */}
                   <div className="flex flex-wrap items-center gap-1.5">
                     {item.tags.map((tag, idx) => (
-                      <span key={idx} className="text-[10px] font-semibold text-gray-600 px-2 py-0.5 rounded-full bg-gray-100">
+                      <span key={idx} className="text-[10px] font-semibold text-slate-300 px-2 py-0.5 rounded-full bg-purple-955/40 border border-purple-900/30">
                         #{tag}
                       </span>
                     ))}
                   </div>
 
                   {/* Footer Actions & Budget */}
-                  <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
+                  <div className="pt-3 border-t border-white/5 flex items-center justify-between">
                     <div>
-                      <p className="text-[10px] text-gray-400 uppercase tracking-wider font-semibold">Compensation</p>
-                      <p className="text-sm font-black text-purple-700">{item.budget}</p>
+                      <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Compensation</p>
+                      <p className="text-sm font-black text-purple-400">{item.budget}</p>
                     </div>
 
                     <div className="flex items-center gap-2">
@@ -217,14 +217,14 @@ export default function FeedModal({ isOpen, onClose, onOpenJoinModal }: FeedModa
             </div>
 
             {/* Bottom Create Action CTA */}
-            <div className="p-4 bg-white border-t border-purple-100 flex items-center justify-between">
-              <span className="text-xs font-semibold text-gray-500">Want to drop your own deal or pitch?</span>
+            <div className="p-4 bg-[#0A071E] border-t border-purple-900/40 flex items-center justify-between">
+              <span className="text-xs font-semibold text-slate-400">Want to drop your own deal or pitch?</span>
               <button
                 onClick={() => {
                   onClose();
                   onOpenJoinModal('general');
                 }}
-                className="px-4 py-2 rounded-xl border border-purple-600/30 bg-purple-50 hover:bg-purple-100 text-purple-700 font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer"
+                className="px-4 py-2 rounded-xl border border-purple-900/50 bg-[#131135] hover:bg-purple-955/40 text-purple-400 font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer"
               >
                 <Zap className="w-4 h-4 text-purple-600 fill-purple-600" />
                 <span>Post a Drop</span>

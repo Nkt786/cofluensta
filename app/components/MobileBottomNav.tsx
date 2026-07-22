@@ -31,7 +31,7 @@ export default function MobileBottomNav({ onOpenJoinModal, onOpenFeedModal }: Mo
       >
         <button
           onClick={() => onOpenJoinModal('business')}
-          className="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 via-purple-700 to-indigo-600 text-white flex items-center justify-center shadow-xl shadow-purple-600/40 border-2 border-white hover:scale-110 active:scale-95 transition-all cursor-pointer group"
+          className="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 via-purple-700 to-indigo-600 text-white flex items-center justify-center shadow-xl shadow-purple-600/40 border-2 border-purple-950 hover:scale-110 active:scale-95 transition-all cursor-pointer group"
           aria-label="Create New Collab or Campaign"
         >
           <Plus className="w-7 h-7 stroke-[3] group-hover:rotate-90 transition-transform duration-300" />
@@ -39,7 +39,7 @@ export default function MobileBottomNav({ onOpenJoinModal, onOpenFeedModal }: Mo
       </motion.div>
 
       {/* MOBILE BOTTOM NAVIGATION BAR */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-2xl border-t border-purple-100/90 px-2 py-1.5 shadow-[0_-4px_25px_rgba(109,40,217,0.1)]">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#0B0826]/95 backdrop-blur-2xl border-t border-purple-900/40 px-2 py-1.5 shadow-[0_-4px_25px_rgba(0,0,0,0.4)]">
         <div className="flex items-center justify-around relative max-w-md mx-auto">
           {tabs.map((tab) => {
             const Icon = tab.icon;
@@ -82,18 +82,18 @@ export default function MobileBottomNav({ onOpenJoinModal, onOpenFeedModal }: Mo
                 <div className="relative">
                   <Icon
                     className={`w-5 h-5 transition-colors ${
-                      isActive ? 'text-purple-600 stroke-[2.5]' : 'text-gray-400'
+                      isActive ? 'text-purple-400 stroke-[2.5]' : 'text-slate-450'
                     }`}
                   />
                   {tab.badge && (
-                    <span className="absolute -top-1 -right-2.5 px-1.5 py-0.2 rounded-full bg-indigo-600 text-white text-[8px] font-black shadow-xs">
+                    <span className="absolute -top-1 -right-2.5 px-1.5 py-0.2 rounded-full bg-indigo-650 text-white text-[8px] font-black shadow-xs">
                       {tab.badge}
                     </span>
                   )}
                 </div>
                 <span
                   className={`text-[10px] mt-1 transition-colors ${
-                    isActive ? 'text-purple-600 font-extrabold' : 'text-gray-500 font-semibold'
+                    isActive ? 'text-purple-400 font-extrabold' : 'text-slate-400 font-semibold'
                   }`}
                 >
                   {tab.label}

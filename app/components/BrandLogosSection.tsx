@@ -22,19 +22,19 @@ export default function BrandLogosSection() {
     <section className="py-10 lg:py-14 relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       
       {/* Title Header */}
-      <h3 className="text-sm sm:text-base font-semibold text-gray-500 mb-8 tracking-wide">
+      <h3 className="text-sm sm:text-base font-semibold text-slate-400 mb-8 tracking-wide">
         Trusted by 1000+ Amazing Brands
       </h3>
 
       {/* Brand Logos Container */}
-      <div className="glass-panel py-6 px-4 rounded-2xl border border-gray-200/85 bg-white/70 shadow-sm">
+      <div className="glass-panel py-6 px-4 rounded-2xl border border-white/5 bg-[#0B0826]/40 shadow-sm">
         
         {/* Desktop & Mobile Brand Logo Grid */}
         <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-12 opacity-80 hover:opacity-100 transition-opacity">
           {brands.map((brand, idx) => (
             <div
               key={idx}
-              className="text-gray-500 hover:text-gray-900 transition-colors duration-200 cursor-pointer select-none"
+              className="text-slate-500 hover:text-slate-300 transition-colors duration-200 cursor-pointer select-none"
             >
               <span className={`text-lg sm:text-xl md:text-2xl ${brand.font}`}>
                 {brand.name}
@@ -52,7 +52,7 @@ export default function BrandLogosSection() {
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 activePageIndex === index
                   ? 'w-6 bg-purple-600 shadow-[0_0_8px_rgba(109,40,217,0.4)]'
-                  : 'w-1.5 bg-gray-200'
+                  : 'w-1.5 bg-slate-700'
               }`}
               aria-label={`Go to brand page ${index + 1}`}
             />
